@@ -1,4 +1,4 @@
-// Featured List - Updated May 31, 2024
+// Featured List - Updated June 1, 2024
 function noop() { }
 function assign(tar, src) {
     // @ts-ignore
