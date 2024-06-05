@@ -1,0 +1,340 @@
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta name="generator" content="Primo" />
+      <title>Graduates' Christian Fellowship Malaysia</title><!-- HEAD_svelte-1t7ohez_START --><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta charset="UTF-8"><link rel="icon" type="image/png" sizes="32x32" href="https://jbbjtodsvhsgjappwopg.supabase.co/storage/v1/object/public/sites/prisaka/assets/logoipsum-277.svg"><link rel="preconnect" href="https://fonts.bunny.net"><meta name="description" content="Mobilise graduates to impact society for the glory of Christ "><style>/* Reset & standardize default styles */
+@import url("https://unpkg.com/@primo-app/primo@1.3.64/reset.css") layer;
+
+/* Design tokens (apply to components) */
+:root {
+  /* Custom theme options */
+  --color-accent: #004700;
+
+  /* Base values */
+  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
+  --border-radius: 0;
+  --border-color: #e0e1e1;
+}
+
+/* Root element (use instead of `body`) */
+#page {
+  font-family: system-ui, sans-serif;
+  color: #111;
+  line-height: 1.5;
+  font-size: 1.125rem;
+  background: white;
+}
+
+/* Elements */
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+}
+
+a.link {
+  line-height: 1.3;
+
+  border-bottom: 2px solid var(--color-accent);
+  transform: translateY(-2px); /* move link back into place */
+  transition: var(--transition, 0.1s border);
+}
+
+a.link:hover {
+    border-color: transparent;
+  }
+
+.heading {
+  font-size: 2.5rem;
+  line-height: 1.15;
+
+}
+
+.button {
+  color: white;
+  background: var(--color-accent, rebeccapurple);
+  border-radius: 0;
+  padding: 18px 24px;
+  transition: var(--transition, 0.1s box-shadow);
+  border: 0;
+}
+
+/* reset */
+
+.button:hover {
+    box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);
+  }
+
+.button.inverted {
+    background: transparent;
+    color: var(--color-accent, rebeccapurple);
+  }
+
+/* Content Section */
+.content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+.content p {
+    margin-bottom: 1rem;
+    line-height: 1.5;
+  }
+.content img {
+    width: 100%;
+    margin: 2rem 0;
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
+  }
+.content a.link {
+    line-height: 1.3;
+    font-weight: 500;
+    border-bottom: 2px solid var(--color-accent);
+    transform: translateY(-2px); /* move link back into place */
+    transition: var(--transition, 0.1s border);
+  }
+.content a.link:hover {
+      border-color: transparent;
+    }
+.content h1 {
+    font-size: 3rem;
+    font-weight: 500;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+.content h2 {
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+.content h3 {
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+.content ul {
+    list-style: disc;
+    padding: 0.5rem 0;
+    padding-left: 1.25rem;
+  }
+.content ol {
+    list-style: decimal;
+    padding: 0.5rem 0;
+    padding-left: 1.25rem;
+  }
+.content blockquote {
+    padding: 2rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-left: 5px solid var(--color-accent);
+  }
+</style><!-- HEAD_svelte-1t7ohez_END -->
+      <style>@import url("https://unpkg.com/modern-normalize@1.1.0/modern-normalize.css");header.svelte-6vjs4t.svelte-6vjs4t.svelte-6vjs4t{border-bottom:1px solid var(--border-color)}.section-container.svelte-6vjs4t.svelte-6vjs4t.svelte-6vjs4t{display:flex;justify-content:space-between;align-items:center;padding-top:0.75rem;padding-bottom:0.75rem}.desktop-nav.svelte-6vjs4t.svelte-6vjs4t.svelte-6vjs4t{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;width:100%}.desktop-nav.svelte-6vjs4t .logo.svelte-6vjs4t.svelte-6vjs4t{font-size:1.5rem;font-weight:600;line-height:1.4;margin-right:1.5rem;width:var(--size)}.desktop-nav.svelte-6vjs4t nav.svelte-6vjs4t.svelte-6vjs4t{display:flex;align-items:center;gap:1.5rem}.desktop-nav.svelte-6vjs4t nav.svelte-6vjs4t a.svelte-6vjs4t{font-size:1rem;font-weight:400;display:none}.desktop-nav.svelte-6vjs4t nav a.nav-item.svelte-6vjs4t.svelte-6vjs4t{border-bottom:2px solid transparent;transition:border-color 0.1s}.desktop-nav.svelte-6vjs4t nav a.nav-item.svelte-6vjs4t.svelte-6vjs4t:hover{border-color:var(--color-brand)}.desktop-nav.svelte-6vjs4t button#open.svelte-6vjs4t.svelte-6vjs4t{font-size:1.5rem;margin-left:auto}nav#mobile-nav.svelte-6vjs4t.svelte-6vjs4t.svelte-6vjs4t{position:absolute;flex-direction:column;text-align:center;background-color:var(--background-color, white);box-shadow:var(--box-shadow);border-radius:var(--border-radius);left:0.5rem;top:0.5rem;right:0.5rem;padding:2rem;z-index:2}nav#mobile-nav.svelte-6vjs4t a.svelte-6vjs4t.svelte-6vjs4t{display:block}nav#mobile-nav.svelte-6vjs4t hr.svelte-6vjs4t.svelte-6vjs4t{width:100%}nav#mobile-nav.svelte-6vjs4t .button.svelte-6vjs4t.svelte-6vjs4t{width:100%;justify-content:center}nav#mobile-nav.svelte-6vjs4t button#close.svelte-6vjs4t.svelte-6vjs4t{display:block;position:absolute;right:1rem;top:1rem;font-size:1.5rem}@media(min-width: 600px){#open.svelte-6vjs4t.svelte-6vjs4t.svelte-6vjs4t,#mobile-nav.svelte-6vjs4t.svelte-6vjs4t.svelte-6vjs4t{display:none}.desktop-nav.svelte-6vjs4t nav.svelte-6vjs4t a.svelte-6vjs4t{display:inline-block}}
+.heading.svelte-7tm6a9.svelte-7tm6a9{text-align:center;margin-bottom:3rem}ul.cards.svelte-7tm6a9.svelte-7tm6a9{display:grid;place-items:center;gap:2rem}ul.cards.svelte-7tm6a9 li.svelte-7tm6a9{max-width:400px;padding:1.5rem;border:1px solid var(--border-color, #eee);border-radius:var(--border-radius)}ul.cards.svelte-7tm6a9 li figure.svelte-7tm6a9{display:grid;place-items:center}ul.cards.svelte-7tm6a9 li figure img.svelte-7tm6a9{padding:2rem;aspect-ratio:1 / 1;border-radius:50%;-o-object-fit:cover;object-fit:cover;width:100%}ul.cards.svelte-7tm6a9 li .info .details.svelte-7tm6a9{display:grid;gap:.25rem;text-align:center;margin-bottom:1rem}ul.cards.svelte-7tm6a9 li .info .details span.name.svelte-7tm6a9{font-weight:600}ul.cards.svelte-7tm6a9 li .info .details span.title.svelte-7tm6a9{font-size:1rem;color:#444}ul.cards.svelte-7tm6a9 li .info .social.svelte-7tm6a9{display:flex;justify-content:center;gap:1.25rem;font-size:1.5rem;color:var(--color-accent, rebeccapurple)}ul.cards.svelte-7tm6a9 li .info .social a.svelte-7tm6a9{transition:var(--transition, 0.1s transform)}ul.cards.svelte-7tm6a9 li .info .social a.svelte-7tm6a9:hover{transform:scale(1.1)}@media(min-width: 600px){ul.cards.svelte-7tm6a9.svelte-7tm6a9{grid-template-columns:1fr 1fr
+}}@media(min-width: 1000px){ul.cards.svelte-7tm6a9.svelte-7tm6a9{grid-template-columns:1fr 1fr 1fr
+}}
+footer.svelte-u1zmy0.svelte-u1zmy0{background:#2b312b;color:white}.section-container.svelte-u1zmy0.svelte-u1zmy0{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4rem}.content.svelte-u1zmy0.svelte-u1zmy0{margin:initial;padding:0;line-height:1.1}.nav-items.svelte-u1zmy0.svelte-u1zmy0{display:flex;flex-wrap:wrap;gap:4rem}.nav-items.svelte-u1zmy0 ul.svelte-u1zmy0{display:grid;gap:0.5rem}.nav-items.svelte-u1zmy0 ul .link.svelte-u1zmy0{border-bottom:2px solid white}.nav-items.svelte-u1zmy0 ul .link.svelte-u1zmy0:hover{border-color:transparent}.nav-items.svelte-u1zmy0 h3.svelte-u1zmy0{font-weight:500;font-size:1.5rem;margin-bottom:1rem}</style>
+    </head>
+    <body id="page">
+       
+<div class="section" id="section-db2d4d67"><header class="svelte-6vjs4t"><div class="section-container svelte-6vjs4t"><div class="desktop-nav svelte-6vjs4t"><a href="/" class="logo svelte-6vjs4t" style="--size: 3rem;"><img src="https://ebeszwdfuqbzgmcwfvch.supabase.co/storage/v1/object/public/images/9e76f54d-1f04-4347-b8e8-edb5fc5422ab/1627475044230GCF-Malaysia-Logo-Official.jpg" alt="Logoipsum"></a>
+      <nav class="svelte-6vjs4t"><a class="nav-item svelte-6vjs4t" href="/gcfmalaysia.org/about">About</a><a class="nav-item svelte-6vjs4t" href="/gcfmalaysia.org/ibridge">iBridge</a><a class="nav-item svelte-6vjs4t" href="/gcfmalaysia.org/impact">Impact</a><a class="nav-item svelte-6vjs4t" href="/gcfmalaysia.org/nation-building">Nation-Building</a><a class="nav-item svelte-6vjs4t" href="/gcfmalaysia.org/events">Events</a><a class="nav-item svelte-6vjs4t" href="/gcfmalaysia.org/resource">Resources</a>
+        <a class="button svelte-6vjs4t" href="/">Home</a>
+        <button id="open" aria-label="Open mobile navigation" class="svelte-6vjs4t"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden role="img" width="1em" height="1em" viewBox="0 0 24 24" class="iconify iconify--ic"><!-- HTML_TAG_START --><path fill="currentColor" d="M4 18h16c.55 0 1-.45 1-1s-.45-1-1-1H4c-.55 0-1 .45-1 1s.45 1 1 1m0-5h16c.55 0 1-.45 1-1s-.45-1-1-1H4c-.55 0-1 .45-1 1s.45 1 1 1M3 7c0 .55.45 1 1 1h16c.55 0 1-.45 1-1s-.45-1-1-1H4c-.55 0-1 .45-1 1"/><!-- HTML_TAG_END --></svg></button></nav></div>
+    </div></header></div> 
+<div class="section" id="section-eadc0bc7"><section class="section-container svelte-7tm6a9"><h2 class="heading svelte-7tm6a9">Activities</h2>
+  <ul class="cards svelte-7tm6a9"><li class="svelte-7tm6a9"><figure class="svelte-7tm6a9"><img alt="" src="https://ebeszwdfuqbzgmcwfvch.supabase.co/storage/v1/object/public/images/9e76f54d-1f04-4347-b8e8-edb5fc5422ab/1717520130809WhatsApp%20Image%202024-06-05%20at%2000.53.45.jpeg" class="svelte-7tm6a9">
+        </figure>
+      <div class="info"><div class="details svelte-7tm6a9"><span class="name svelte-7tm6a9">Hiking</span>
+          <span class="title svelte-7tm6a9"></span></div>
+        <div class="social svelte-7tm6a9">
+        </div></div>
+    </li><li class="svelte-7tm6a9"><figure class="svelte-7tm6a9"><img alt="" src="https://ebeszwdfuqbzgmcwfvch.supabase.co/storage/v1/object/public/images/9e76f54d-1f04-4347-b8e8-edb5fc5422ab/1717520899895WhatsApp%20Image%202024-06-05%20at%2000.57.31.jpeg" class="svelte-7tm6a9">
+        </figure>
+      <div class="info"><div class="details svelte-7tm6a9"><span class="name svelte-7tm6a9">Table Tennis</span>
+          <span class="title svelte-7tm6a9"></span></div>
+        <div class="social svelte-7tm6a9">
+        </div></div>
+    </li><li class="svelte-7tm6a9"><figure class="svelte-7tm6a9"><img alt="" src="https://ebeszwdfuqbzgmcwfvch.supabase.co/storage/v1/object/public/images/9e76f54d-1f04-4347-b8e8-edb5fc5422ab/1714721371213IMG_20240410_192202.jpg" class="svelte-7tm6a9">
+        </figure>
+      <div class="info"><div class="details svelte-7tm6a9"><span class="name svelte-7tm6a9">Hot Spring</span>
+          <span class="title svelte-7tm6a9"></span></div>
+        <div class="social svelte-7tm6a9">
+        </div></div>
+    </li><li class="svelte-7tm6a9"><figure class="svelte-7tm6a9"><img alt="" src="https://ebeszwdfuqbzgmcwfvch.supabase.co/storage/v1/object/public/images/9e76f54d-1f04-4347-b8e8-edb5fc5422ab/1706114040590IMG-20240107-WA0010.jpg" class="svelte-7tm6a9">
+        </figure>
+      <div class="info"><div class="details svelte-7tm6a9"><span class="name svelte-7tm6a9">Movies</span>
+          <span class="title svelte-7tm6a9"></span></div>
+        <div class="social svelte-7tm6a9">
+        </div></div>
+    </li><li class="svelte-7tm6a9"><figure class="svelte-7tm6a9"><img alt="" src="https://ebeszwdfuqbzgmcwfvch.supabase.co/storage/v1/object/public/images/9e76f54d-1f04-4347-b8e8-edb5fc5422ab/1707274716137IMG-20240115-WA0008.jpg" class="svelte-7tm6a9">
+        </figure>
+      <div class="info"><div class="details svelte-7tm6a9"><span class="name svelte-7tm6a9">Luge</span>
+          <span class="title svelte-7tm6a9"></span></div>
+        <div class="social svelte-7tm6a9">
+        </div></div>
+    </li><li class="svelte-7tm6a9"><figure class="svelte-7tm6a9"><img alt="" src="https://ebeszwdfuqbzgmcwfvch.supabase.co/storage/v1/object/public/images/9e76f54d-1f04-4347-b8e8-edb5fc5422ab/1705650579263IMG_20231022_190409.jpg" class="svelte-7tm6a9">
+        </figure>
+      <div class="info"><div class="details svelte-7tm6a9"><span class="name svelte-7tm6a9">Badminton</span>
+          <span class="title svelte-7tm6a9"></span></div>
+        <div class="social svelte-7tm6a9">
+        </div></div>
+    </li><li class="svelte-7tm6a9"><figure class="svelte-7tm6a9"><img alt="" src="https://ebeszwdfuqbzgmcwfvch.supabase.co/storage/v1/object/public/images/9e76f54d-1f04-4347-b8e8-edb5fc5422ab/1712244252374WhatsApp%20Image%202024-03-06%20at%2018.16.45.jpeg" class="svelte-7tm6a9">
+        </figure>
+      <div class="info"><div class="details svelte-7tm6a9"><span class="name svelte-7tm6a9">Pickleball</span>
+          <span class="title svelte-7tm6a9"></span></div>
+        <div class="social svelte-7tm6a9">
+        </div></div>
+    </li><li class="svelte-7tm6a9"><figure class="svelte-7tm6a9"><img alt="" src="https://ebeszwdfuqbzgmcwfvch.supabase.co/storage/v1/object/public/images/9e76f54d-1f04-4347-b8e8-edb5fc5422ab/1712245944617WhatsApp%20Image%202024-03-24%20at%2020.49.22.jpeg" class="svelte-7tm6a9">
+        </figure>
+      <div class="info"><div class="details svelte-7tm6a9"><span class="name svelte-7tm6a9">Board Games</span>
+          <span class="title svelte-7tm6a9"></span></div>
+        <div class="social svelte-7tm6a9">
+        </div></div>
+    </li><li class="svelte-7tm6a9"><figure class="svelte-7tm6a9"><img alt="" src="https://ebeszwdfuqbzgmcwfvch.supabase.co/storage/v1/object/public/images/9e76f54d-1f04-4347-b8e8-edb5fc5422ab/1683614659536River%20Cleaning.jpg" class="svelte-7tm6a9">
+        </figure>
+      <div class="info"><div class="details svelte-7tm6a9"><span class="name svelte-7tm6a9">River Cleaning</span>
+          <span class="title svelte-7tm6a9"></span></div>
+        <div class="social svelte-7tm6a9">
+        </div></div>
+    </li><li class="svelte-7tm6a9"><figure class="svelte-7tm6a9"><img alt="" src="https://ebeszwdfuqbzgmcwfvch.supabase.co/storage/v1/object/public/images/9e76f54d-1f04-4347-b8e8-edb5fc5422ab/1686133871268IMG-20230520-WA0008%20(1).jpg" class="svelte-7tm6a9">
+        </figure>
+      <div class="info"><div class="details svelte-7tm6a9"><span class="name svelte-7tm6a9">Tree Planting</span>
+          <span class="title svelte-7tm6a9"></span></div>
+        <div class="social svelte-7tm6a9">
+        </div></div>
+    </li><li class="svelte-7tm6a9"><figure class="svelte-7tm6a9"><img alt="" src="https://ebeszwdfuqbzgmcwfvch.supabase.co/storage/v1/object/public/images/9e76f54d-1f04-4347-b8e8-edb5fc5422ab/1675434212195TASK.jpg" class="svelte-7tm6a9">
+        </figure>
+      <div class="info"><div class="details svelte-7tm6a9"><span class="name svelte-7tm6a9">Soup Kitchen</span>
+          <span class="title svelte-7tm6a9"></span></div>
+        <div class="social svelte-7tm6a9">
+        </div></div>
+    </li><li class="svelte-7tm6a9"><figure class="svelte-7tm6a9"><img alt="" src="https://ebeszwdfuqbzgmcwfvch.supabase.co/storage/v1/object/public/images/9e76f54d-1f04-4347-b8e8-edb5fc5422ab/1691729933566Re-Play.jpg" class="svelte-7tm6a9">
+        </figure>
+      <div class="info"><div class="details svelte-7tm6a9"><span class="name svelte-7tm6a9">Toy Recycling</span>
+          <span class="title svelte-7tm6a9"></span></div>
+        <div class="social svelte-7tm6a9">
+        </div></div>
+    </li><li class="svelte-7tm6a9"><figure class="svelte-7tm6a9"><img alt="" src="https://ebeszwdfuqbzgmcwfvch.supabase.co/storage/v1/object/public/images/9e76f54d-1f04-4347-b8e8-edb5fc5422ab/1672479932560Prayer%20Walk.jpg" class="svelte-7tm6a9">
+        </figure>
+      <div class="info"><div class="details svelte-7tm6a9"><span class="name svelte-7tm6a9">Prayer Walk</span>
+          <span class="title svelte-7tm6a9"></span></div>
+        <div class="social svelte-7tm6a9">
+        </div></div>
+    </li><li class="svelte-7tm6a9"><figure class="svelte-7tm6a9"><img alt="" src="https://ebeszwdfuqbzgmcwfvch.supabase.co/storage/v1/object/public/images/9e76f54d-1f04-4347-b8e8-edb5fc5422ab/1683613970545Kayaking.jpg" class="svelte-7tm6a9">
+        </figure>
+      <div class="info"><div class="details svelte-7tm6a9"><span class="name svelte-7tm6a9">Kayaking</span>
+          <span class="title svelte-7tm6a9"></span></div>
+        <div class="social svelte-7tm6a9">
+        </div></div>
+    </li><li class="svelte-7tm6a9"><figure class="svelte-7tm6a9"><img alt="" src="https://ebeszwdfuqbzgmcwfvch.supabase.co/storage/v1/object/public/images/9e76f54d-1f04-4347-b8e8-edb5fc5422ab/1650450935730IMG-20200105-WA0001.jpg" class="svelte-7tm6a9">
+        </figure>
+      <div class="info"><div class="details svelte-7tm6a9"><span class="name svelte-7tm6a9">Captain Ball</span>
+          <span class="title svelte-7tm6a9"></span></div>
+        <div class="social svelte-7tm6a9">
+        </div></div>
+    </li><li class="svelte-7tm6a9"><figure class="svelte-7tm6a9"><img alt="" src="https://ebeszwdfuqbzgmcwfvch.supabase.co/storage/v1/object/public/images/9e76f54d-1f04-4347-b8e8-edb5fc5422ab/1644490499210IMG_20220122_102023.jpg" class="svelte-7tm6a9">
+        </figure>
+      <div class="info"><div class="details svelte-7tm6a9"><span class="name svelte-7tm6a9">ATV Adventure</span>
+          <span class="title svelte-7tm6a9"></span></div>
+        <div class="social svelte-7tm6a9">
+        </div></div>
+    </li><li class="svelte-7tm6a9"><figure class="svelte-7tm6a9"><img alt="" src="https://ebeszwdfuqbzgmcwfvch.supabase.co/storage/v1/object/public/images/9e76f54d-1f04-4347-b8e8-edb5fc5422ab/1692690669342IMG-20230506-WA0034.jpg" class="svelte-7tm6a9">
+        </figure>
+      <div class="info"><div class="details svelte-7tm6a9"><span class="name svelte-7tm6a9">Parliment Open Day</span>
+          <span class="title svelte-7tm6a9"></span></div>
+        <div class="social svelte-7tm6a9">
+        </div></div>
+    </li><li class="svelte-7tm6a9"><figure class="svelte-7tm6a9"><img alt="" src="https://ebeszwdfuqbzgmcwfvch.supabase.co/storage/v1/object/public/images/9e76f54d-1f04-4347-b8e8-edb5fc5422ab/1692683794038IMG-20230501-WA0005.jpg" class="svelte-7tm6a9">
+        </figure>
+      <div class="info"><div class="details svelte-7tm6a9"><span class="name svelte-7tm6a9">Running Clinic</span>
+          <span class="title svelte-7tm6a9"></span></div>
+        <div class="social svelte-7tm6a9">
+        </div></div>
+    </li><li class="svelte-7tm6a9"><figure class="svelte-7tm6a9"><img alt="" src="https://ebeszwdfuqbzgmcwfvch.supabase.co/storage/v1/object/public/images/9e76f54d-1f04-4347-b8e8-edb5fc5422ab/1674184772647IMG-20220612-WA0014%20(2).jpg" class="svelte-7tm6a9">
+        </figure>
+      <div class="info"><div class="details svelte-7tm6a9"><span class="name svelte-7tm6a9">CPR Training</span>
+          <span class="title svelte-7tm6a9"></span></div>
+        <div class="social svelte-7tm6a9">
+        </div></div>
+    </li><li class="svelte-7tm6a9"><figure class="svelte-7tm6a9"><img alt="" src="https://ebeszwdfuqbzgmcwfvch.supabase.co/storage/v1/object/public/images/9e76f54d-1f04-4347-b8e8-edb5fc5422ab/1646201504797IMG-20220203-WA0073.jpg" class="svelte-7tm6a9">
+        </figure>
+      <div class="info"><div class="details svelte-7tm6a9"><span class="name svelte-7tm6a9">Bowling</span>
+          <span class="title svelte-7tm6a9"></span></div>
+        <div class="social svelte-7tm6a9">
+        </div></div>
+    </li><li class="svelte-7tm6a9"><figure class="svelte-7tm6a9"><img alt="" src="https://ebeszwdfuqbzgmcwfvch.supabase.co/storage/v1/object/public/images/9e76f54d-1f04-4347-b8e8-edb5fc5422ab/1696606887147IMG_20230916_090323.jpg" class="svelte-7tm6a9">
+        </figure>
+      <div class="info"><div class="details svelte-7tm6a9"><span class="name svelte-7tm6a9">Picnic</span>
+          <span class="title svelte-7tm6a9"></span></div>
+        <div class="social svelte-7tm6a9">
+        </div></div>
+    </li><li class="svelte-7tm6a9"><figure class="svelte-7tm6a9"><img alt="" src="https://ebeszwdfuqbzgmcwfvch.supabase.co/storage/v1/object/public/images/9e76f54d-1f04-4347-b8e8-edb5fc5422ab/1678937925783IMG-20230304-WA0049.jpg" class="svelte-7tm6a9">
+        </figure>
+      <div class="info"><div class="details svelte-7tm6a9"><span class="name svelte-7tm6a9">National Art Gallery</span>
+          <span class="title svelte-7tm6a9"></span></div>
+        <div class="social svelte-7tm6a9">
+        </div></div>
+    </li><li class="svelte-7tm6a9"><figure class="svelte-7tm6a9"><img alt="" src="https://ebeszwdfuqbzgmcwfvch.supabase.co/storage/v1/object/public/images/9e76f54d-1f04-4347-b8e8-edb5fc5422ab/1659517465139Royal%20Selangor.jpg" class="svelte-7tm6a9">
+        </figure>
+      <div class="info"><div class="details svelte-7tm6a9"><span class="name svelte-7tm6a9">Royal Selangor Pewter</span>
+          <span class="title svelte-7tm6a9"></span></div>
+        <div class="social svelte-7tm6a9">
+        </div></div>
+    </li><li class="svelte-7tm6a9"><figure class="svelte-7tm6a9"><img alt="" src="https://ebeszwdfuqbzgmcwfvch.supabase.co/storage/v1/object/public/images/9e76f54d-1f04-4347-b8e8-edb5fc5422ab/1717577697342Photo%20Walk.jpg" class="svelte-7tm6a9">
+        </figure>
+      <div class="info"><div class="details svelte-7tm6a9"><span class="name svelte-7tm6a9"></span>
+          <span class="title svelte-7tm6a9"></span></div>
+        <div class="social svelte-7tm6a9">
+        </div></div>
+    </li><li class="svelte-7tm6a9"><figure class="svelte-7tm6a9"><img alt="" src="https://ebeszwdfuqbzgmcwfvch.supabase.co/storage/v1/object/public/images/9e76f54d-1f04-4347-b8e8-edb5fc5422ab/1692684269628IMG-20230501-WA0005%20(1).jpg" class="svelte-7tm6a9">
+        </figure>
+      <div class="info"><div class="details svelte-7tm6a9"><span class="name svelte-7tm6a9"></span>
+          <span class="title svelte-7tm6a9"></span></div>
+        <div class="social svelte-7tm6a9">
+        </div></div>
+    </li></ul></section></div> 
+<div class="section" id="section-683626c6"><footer class="svelte-u1zmy0"><div class="section-container svelte-u1zmy0"><div class="content svelte-u1zmy0"><!-- HTML_TAG_START --><p>Persatuan Siswazah Kristian Malaysia (GCF)</p>
+<p>P.O.BOX 8320 Kelana Jaya Post Office.</p>
+<p>46786 Kelana Jaya. Selangor. Malaysia.</p><!-- HTML_TAG_END --></div>
+    <div class="nav-items svelte-u1zmy0"><nav><h3 class="svelte-u1zmy0">Social Media</h3>
+          <ul class="svelte-u1zmy0"><li><a class="link svelte-u1zmy0" href="https://www.instagram.com/gcf_ibridge">Instagram</a>
+              </li><li><a class="link svelte-u1zmy0" href="https://www.facebook.com/gcfmalaysia.org/">Facebook</a>
+              </li><li><a class="link svelte-u1zmy0" href="https://www.linkedin.com/groups/10347266/">LinkedIn</a>
+              </li></ul>
+        </nav><nav><h3 class="svelte-u1zmy0">Get Involved</h3>
+          <ul class="svelte-u1zmy0"><li><a class="link svelte-u1zmy0" href="https://forms.gle/a9PrZiACT7zQgAZf9">Membership</a>
+              </li><li><a class="link svelte-u1zmy0" href="https://forms.gle/SWie7a7m1xmPm11UA">Volunteer</a>
+              </li><li><a class="link svelte-u1zmy0" href="https://forms.gle/kFifHxsLSP2kCeZG7">Love Gift</a>
+              </li></ul>
+        </nav></div></div></footer></div> 
+
+      <script type="module">
+      import('/_symbols/e7db53cc-c1a1-4bbe-a786-a1d50e0d592a.js')
+      .then(({default:App}) => {
+        
+            new App({
+              target: document.querySelector('#section-eadc0bc7'),
+              hydrate: true,
+              props: {"heading":"Activities","people":[{"name":"Hiking","image":{"alt":"","url":"https://ebeszwdfuqbzgmcwfvch.supabase.co/storage/v1/object/public/images/9e76f54d-1f04-4347-b8e8-edb5fc5422ab/1717520130809WhatsApp%20Image%202024-06-05%20at%2000.53.45.jpeg"},"title":"","social_links":[]},{"name":"Table Tennis","image":{"alt":"","url":"https://ebeszwdfuqbzgmcwfvch.supabase.co/storage/v1/object/public/images/9e76f54d-1f04-4347-b8e8-edb5fc5422ab/1717520899895WhatsApp%20Image%202024-06-05%20at%2000.57.31.jpeg"},"title":"","social_links":[]},{"name":"Hot Spring","image":{"alt":"","url":"https://ebeszwdfuqbzgmcwfvch.supabase.co/storage/v1/object/public/images/9e76f54d-1f04-4347-b8e8-edb5fc5422ab/1714721371213IMG_20240410_192202.jpg"},"title":"","social_links":[]},{"name":"Movies","image":{"alt":"","url":"https://ebeszwdfuqbzgmcwfvch.supabase.co/storage/v1/object/public/images/9e76f54d-1f04-4347-b8e8-edb5fc5422ab/1706114040590IMG-20240107-WA0010.jpg"},"title":"","social_links":[]},{"name":"Luge","image":{"alt":"","url":"https://ebeszwdfuqbzgmcwfvch.supabase.co/storage/v1/object/public/images/9e76f54d-1f04-4347-b8e8-edb5fc5422ab/1707274716137IMG-20240115-WA0008.jpg"},"title":"","social_links":[]},{"name":"Badminton","image":{"alt":"","url":"https://ebeszwdfuqbzgmcwfvch.supabase.co/storage/v1/object/public/images/9e76f54d-1f04-4347-b8e8-edb5fc5422ab/1705650579263IMG_20231022_190409.jpg"},"title":"","social_links":[]},{"name":"Pickleball","image":{"alt":"","url":"https://ebeszwdfuqbzgmcwfvch.supabase.co/storage/v1/object/public/images/9e76f54d-1f04-4347-b8e8-edb5fc5422ab/1712244252374WhatsApp%20Image%202024-03-06%20at%2018.16.45.jpeg"},"title":"","social_links":[]},{"name":"Board Games","image":{"alt":"","url":"https://ebeszwdfuqbzgmcwfvch.supabase.co/storage/v1/object/public/images/9e76f54d-1f04-4347-b8e8-edb5fc5422ab/1712245944617WhatsApp%20Image%202024-03-24%20at%2020.49.22.jpeg"},"title":"","social_links":[]},{"name":"River Cleaning","image":{"alt":"","url":"https://ebeszwdfuqbzgmcwfvch.supabase.co/storage/v1/object/public/images/9e76f54d-1f04-4347-b8e8-edb5fc5422ab/1683614659536River%20Cleaning.jpg"},"title":"","social_links":[]},{"name":"Tree Planting","image":{"alt":"","url":"https://ebeszwdfuqbzgmcwfvch.supabase.co/storage/v1/object/public/images/9e76f54d-1f04-4347-b8e8-edb5fc5422ab/1686133871268IMG-20230520-WA0008%20(1).jpg"},"title":"","social_links":[]},{"name":"Soup Kitchen","image":{"alt":"","url":"https://ebeszwdfuqbzgmcwfvch.supabase.co/storage/v1/object/public/images/9e76f54d-1f04-4347-b8e8-edb5fc5422ab/1675434212195TASK.jpg"},"title":"","social_links":[]},{"name":"Toy Recycling","image":{"alt":"","url":"https://ebeszwdfuqbzgmcwfvch.supabase.co/storage/v1/object/public/images/9e76f54d-1f04-4347-b8e8-edb5fc5422ab/1691729933566Re-Play.jpg"},"title":"","social_links":[]},{"name":"Prayer Walk","image":{"alt":"","url":"https://ebeszwdfuqbzgmcwfvch.supabase.co/storage/v1/object/public/images/9e76f54d-1f04-4347-b8e8-edb5fc5422ab/1672479932560Prayer%20Walk.jpg"},"title":"","social_links":[]},{"name":"Kayaking","image":{"alt":"","url":"https://ebeszwdfuqbzgmcwfvch.supabase.co/storage/v1/object/public/images/9e76f54d-1f04-4347-b8e8-edb5fc5422ab/1683613970545Kayaking.jpg"},"title":"","social_links":[]},{"name":"Captain Ball","image":{"alt":"","url":"https://ebeszwdfuqbzgmcwfvch.supabase.co/storage/v1/object/public/images/9e76f54d-1f04-4347-b8e8-edb5fc5422ab/1650450935730IMG-20200105-WA0001.jpg"},"title":"","social_links":[]},{"name":"ATV Adventure","image":{"alt":"","url":"https://ebeszwdfuqbzgmcwfvch.supabase.co/storage/v1/object/public/images/9e76f54d-1f04-4347-b8e8-edb5fc5422ab/1644490499210IMG_20220122_102023.jpg"},"title":"","social_links":[]},{"name":"Parliment Open Day","image":{"alt":"","url":"https://ebeszwdfuqbzgmcwfvch.supabase.co/storage/v1/object/public/images/9e76f54d-1f04-4347-b8e8-edb5fc5422ab/1692690669342IMG-20230506-WA0034.jpg"},"title":"","social_links":[]},{"name":"Running Clinic","image":{"alt":"","url":"https://ebeszwdfuqbzgmcwfvch.supabase.co/storage/v1/object/public/images/9e76f54d-1f04-4347-b8e8-edb5fc5422ab/1692683794038IMG-20230501-WA0005.jpg"},"title":"","social_links":[]},{"name":"CPR Training","image":{"alt":"","url":"https://ebeszwdfuqbzgmcwfvch.supabase.co/storage/v1/object/public/images/9e76f54d-1f04-4347-b8e8-edb5fc5422ab/1674184772647IMG-20220612-WA0014%20(2).jpg"},"title":"","social_links":[]},{"name":"Bowling","image":{"alt":"","url":"https://ebeszwdfuqbzgmcwfvch.supabase.co/storage/v1/object/public/images/9e76f54d-1f04-4347-b8e8-edb5fc5422ab/1646201504797IMG-20220203-WA0073.jpg"},"title":"","social_links":[]},{"name":"Picnic","image":{"alt":"","url":"https://ebeszwdfuqbzgmcwfvch.supabase.co/storage/v1/object/public/images/9e76f54d-1f04-4347-b8e8-edb5fc5422ab/1696606887147IMG_20230916_090323.jpg"},"title":"","social_links":[]},{"name":"National Art Gallery","image":{"alt":"","url":"https://ebeszwdfuqbzgmcwfvch.supabase.co/storage/v1/object/public/images/9e76f54d-1f04-4347-b8e8-edb5fc5422ab/1678937925783IMG-20230304-WA0049.jpg"},"title":"","social_links":[]},{"name":"Royal Selangor Pewter","image":{"alt":"","url":"https://ebeszwdfuqbzgmcwfvch.supabase.co/storage/v1/object/public/images/9e76f54d-1f04-4347-b8e8-edb5fc5422ab/1659517465139Royal%20Selangor.jpg"},"title":"","social_links":[]},{"name":"","image":{"alt":"","url":"https://ebeszwdfuqbzgmcwfvch.supabase.co/storage/v1/object/public/images/9e76f54d-1f04-4347-b8e8-edb5fc5422ab/1717577697342Photo%20Walk.jpg"},"title":"","social_links":[]},{"name":"","image":{"alt":"","url":"https://ebeszwdfuqbzgmcwfvch.supabase.co/storage/v1/object/public/images/9e76f54d-1f04-4347-b8e8-edb5fc5422ab/1692684269628IMG-20230501-WA0005%20(1).jpg"},"title":"","social_links":[]}]}
+            })
+          
+      })
+      .catch(e => console.error(e))
+    
+
+      import('/_symbols/44176cd7-6197-4ebc-9148-2a340bafc5a2.js')
+      .then(({default:App}) => {
+        
+            new App({
+              target: document.querySelector('#section-db2d4d67'),
+              hydrate: true,
+              props: {"logo":{"size":"3","image":{"alt":"Logoipsum","url":"https://ebeszwdfuqbzgmcwfvch.supabase.co/storage/v1/object/public/images/9e76f54d-1f04-4347-b8e8-edb5fc5422ab/1627475044230GCF-Malaysia-Logo-Official.jpg"},"title":"GCF Malaysia"},"site_nav":[{"link":{"url":"/gcfmalaysia.org/about","label":"About"}},{"link":{"url":"/gcfmalaysia.org/ibridge","label":"iBridge"}},{"link":{"url":"/gcfmalaysia.org/impact","label":"Impact"}},{"link":{"url":"/gcfmalaysia.org/nation-building","label":"Nation-Building"}},{"link":{"url":"/gcfmalaysia.org/events","label":"Events","active":false}},{"link":{"url":"/gcfmalaysia.org/resource","label":"Resources","active":false}}],"cta":[{"link":{"url":"/","label":"Home"}}]}
+            })
+          
+      })
+      .catch(e => console.error(e))
+    </script>
+    </body>
+  </html>
+  
