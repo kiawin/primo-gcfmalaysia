@@ -129,7 +129,10 @@ a.link:hover {
     border-left: 5px solid var(--color-accent);
   }
 </style><!-- HEAD_svelte-f4s33s_END -->
-      <style>section.svelte-1qwgcet.svelte-1qwgcet{background:#2b312b;color:white}.teasers.svelte-1qwgcet.svelte-1qwgcet{display:grid;gap:6rem}.teaser.svelte-1qwgcet.svelte-1qwgcet{display:grid;gap:1rem}.teaser.svelte-1qwgcet img.svelte-1qwgcet{width:100%;border-radius:var(--border-radius)}.teaser.svelte-1qwgcet .content-section.svelte-1qwgcet{display:grid;place-items:flex-start;padding:0}.teaser.svelte-1qwgcet .content-section .heading.svelte-1qwgcet{margin-bottom:1.25rem}.teaser.svelte-1qwgcet .content-section .body.svelte-1qwgcet{margin-bottom:2rem}.teaser.svelte-1qwgcet .content-section a.button.svelte-1qwgcet{background-color:transparent;border:1.5px solid white}.teaser.svelte-1qwgcet .content-section a.button.svelte-1qwgcet:hover{box-shadow:0 0 0 2px white}@media(min-width: 800px){.teaser.svelte-1qwgcet.svelte-1qwgcet{grid-template-columns:1fr 1fr;place-items:center;gap:4rem
+      <style>.section-container.svelte-1grguq5.svelte-1grguq5{display:flex;justify-content:space-between;align-items:center;padding-top:1rem;padding-bottom:1rem}.logo.svelte-1grguq5.svelte-1grguq5{font-size:1.5rem;font-weight:600;line-height:1.2}.desktop-nav.svelte-1grguq5.svelte-1grguq5{display:none;align-items:center;justify-content:space-between;width:100%}.desktop-nav.svelte-1grguq5 nav.svelte-1grguq5{display:flex;gap:2rem}.desktop-nav.svelte-1grguq5 nav a.link.svelte-1grguq5{border-color:transparent;transition:border-color 0.1s;font-size:0.95rem}.desktop-nav.svelte-1grguq5 nav a.link.svelte-1grguq5:hover{border-color:initial}@media(min-width: 800px){.desktop-nav.svelte-1grguq5.svelte-1grguq5{display:flex
+}}.mobile-nav.svelte-1grguq5.svelte-1grguq5{display:flex;align-items:center;justify-content:space-between;width:100%;font-weight:500}@media(min-width: 800px){.mobile-nav.svelte-1grguq5.svelte-1grguq5{display:none
+}}#popup.svelte-1grguq5.svelte-1grguq5{font-size:1.25rem;display:grid;gap:1rem;position:absolute;text-align:center;background-color:var(--background-color, white);box-shadow:var(--box-shadow, 0px 4px 30px rgba(0, 0, 0, 0.1));border-radius:var(--border-radius);inset:0.5rem;bottom:initial;padding:2rem;z-index:1}#popup.svelte-1grguq5 button#close.svelte-1grguq5{position:absolute;right:1rem;top:1rem}
+section.svelte-1qwgcet.svelte-1qwgcet{background:#2b312b;color:white}.teasers.svelte-1qwgcet.svelte-1qwgcet{display:grid;gap:6rem}.teaser.svelte-1qwgcet.svelte-1qwgcet{display:grid;gap:1rem}.teaser.svelte-1qwgcet img.svelte-1qwgcet{width:100%;border-radius:var(--border-radius)}.teaser.svelte-1qwgcet .content-section.svelte-1qwgcet{display:grid;place-items:flex-start;padding:0}.teaser.svelte-1qwgcet .content-section .heading.svelte-1qwgcet{margin-bottom:1.25rem}.teaser.svelte-1qwgcet .content-section .body.svelte-1qwgcet{margin-bottom:2rem}.teaser.svelte-1qwgcet .content-section a.button.svelte-1qwgcet{background-color:transparent;border:1.5px solid white}.teaser.svelte-1qwgcet .content-section a.button.svelte-1qwgcet:hover{box-shadow:0 0 0 2px white}@media(min-width: 800px){.teaser.svelte-1qwgcet.svelte-1qwgcet{grid-template-columns:1fr 1fr;place-items:center;gap:4rem
 
     /* switch direction for even items */
 }.teaser.svelte-1qwgcet:nth-child(odd) img.svelte-1qwgcet{grid-row:1;grid-column:2}.teaser.svelte-1qwgcet:nth-child(even) img.svelte-1qwgcet{grid-row:1;grid-column:1}}@media(min-width: 1200px){section.svelte-1qwgcet.svelte-1qwgcet{gap:6rem}.teaser.svelte-1qwgcet.svelte-1qwgcet{gap:10rem}.heading.svelte-1qwgcet.svelte-1qwgcet{margin-bottom:5rem}.body.svelte-1qwgcet.svelte-1qwgcet{margin-bottom:2.5rem}}
@@ -142,6 +145,11 @@ footer.svelte-u1zmy0.svelte-u1zmy0{background:#2b312b;color:white}.section-conta
     </head>
     <body id="page">
        
+<div class="section" id="section-26d2fe76"><header class="section-container svelte-1grguq5"><div class="desktop-nav svelte-1grguq5"><a href="/" class="logo svelte-1grguq5">Site title</a>
+    <nav class="svelte-1grguq5"><a class="link svelte-1grguq5" href="">Home</a><a class="link svelte-1grguq5" href="/">About</a><a class="link svelte-1grguq5" href="https://primosites.vercel.app/primo-library">Contact</a></nav></div>
+  <div class="mobile-nav svelte-1grguq5"><a href="/" class="logo svelte-1grguq5">Site title</a>
+    <button id="open" aria-label="Open mobile navigation"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden role="img" width="30" height="30" viewBox="0 0 24 24" class="iconify iconify--eva"><!-- HTML_TAG_START --><rect width="18" height="2" x="3" y="11" fill="currentColor" rx=".95" ry=".95"/><rect width="18" height="2" x="3" y="16" fill="currentColor" rx=".95" ry=".95"/><rect width="18" height="2" x="3" y="6" fill="currentColor" rx=".95" ry=".95"/><!-- HTML_TAG_END --></svg></button>
+    </div></header></div> 
 <div class="section" id="section-de664823"><section class="svelte-1qwgcet"><div class="section-container svelte-1qwgcet"><div class="teasers svelte-1qwgcet"><div class="teaser svelte-1qwgcet"><img src="https://images.unsplash.com/photo-1685189219324-a4ca49a306bd?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=2148&amp;q=80" alt="" class="svelte-1qwgcet">
           <div class="content-section svelte-1qwgcet"><h2 class="heading svelte-1qwgcet">Community</h2>
             <div class="body svelte-1qwgcet"><!-- HTML_TAG_START --><p>We are a beacon of commitment towards preserving our forests. In the embrace of nature, we stand steadfast, advocating for the voiceless sentinels of our ecosystem. Together, we forge a path towards a greener tomorrow.</p><!-- HTML_TAG_END --></div>
@@ -241,6 +249,19 @@ footer.svelte-u1zmy0.svelte-u1zmy0{background:#2b312b;color:white}.section-conta
               target: document.querySelector('#section-219e222f'),
               hydrate: true,
               props: {"heading":"Testimonials","testimonials":[{"name":"Sam Jenkins","quote":{"html":"<p>Traveling has always been my passion, but planning and organizing the trip details? Not so much. That's where this incredible travel app comes in. From the moment I downloaded it, my travel experience was completely transformed.</p>","markdown":"Traveling has always been my passion, but planning and organizing the trip details? Not so much. That's where this incredible travel app comes in. From the moment I downloaded it, my travel experience was completely transformed."},"title":"Fellow traveller"},{"name":"Non ullamco mollit","quote":{"html":"<h1 id=\"thisissomemarkdown\">This is some markdown</h1>","markdown":"# This is some markdown"},"title":"Do occaecat sunt"}]}
+            })
+          
+      })
+      .catch(e => console.error(e))
+    
+
+      import('/_symbols/594c57af-96bd-4627-a76a-8d784b6c5c1e.js')
+      .then(({default:App}) => {
+        
+            new App({
+              target: document.querySelector('#section-26d2fe76'),
+              hydrate: true,
+              props: {"logo":{"image":{"alt":"","src":"https://jbbjtodsvhsgjappwopg.supabase.co/storage/v1/object/public/sites/public-library/assets/logoipsum-261 (1).svg","url":"https://jbbjtodsvhsgjappwopg.supabase.co/storage/v1/object/public/sites/public-library/assets/logoipsum-261 (1).svg","size":3},"title":"Site title"},"site_nav":[{"link":{"url":"","label":"Home","active":false}},{"link":{"url":"/","label":"About"}},{"link":{"url":"https://primosites.vercel.app/primo-library","label":"Contact"}}]}
             })
           
       })
