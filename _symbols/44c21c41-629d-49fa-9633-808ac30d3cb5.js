@@ -1,4 +1,4 @@
-// Accordion - Updated September 13, 2024
+// Accordion - Updated March 26, 2025
 function noop() { }
 const identity = x => x;
 function assign(tar, src) {
@@ -1050,32 +1050,29 @@ function cubicOut(t) {
     return f * f * f + 1.0;
 }
 
-function slide(node, { delay = 0, duration = 400, easing = cubicOut, axis = 'y' } = {}) {
+function slide(node, { delay = 0, duration = 400, easing = cubicOut } = {}) {
     const style = getComputedStyle(node);
     const opacity = +style.opacity;
-    const primary_property = axis === 'y' ? 'height' : 'width';
-    const primary_property_value = parseFloat(style[primary_property]);
-    const secondary_properties = axis === 'y' ? ['top', 'bottom'] : ['left', 'right'];
-    const capitalized_secondary_properties = secondary_properties.map((e) => `${e[0].toUpperCase()}${e.slice(1)}`);
-    const padding_start_value = parseFloat(style[`padding${capitalized_secondary_properties[0]}`]);
-    const padding_end_value = parseFloat(style[`padding${capitalized_secondary_properties[1]}`]);
-    const margin_start_value = parseFloat(style[`margin${capitalized_secondary_properties[0]}`]);
-    const margin_end_value = parseFloat(style[`margin${capitalized_secondary_properties[1]}`]);
-    const border_width_start_value = parseFloat(style[`border${capitalized_secondary_properties[0]}Width`]);
-    const border_width_end_value = parseFloat(style[`border${capitalized_secondary_properties[1]}Width`]);
+    const height = parseFloat(style.height);
+    const padding_top = parseFloat(style.paddingTop);
+    const padding_bottom = parseFloat(style.paddingBottom);
+    const margin_top = parseFloat(style.marginTop);
+    const margin_bottom = parseFloat(style.marginBottom);
+    const border_top_width = parseFloat(style.borderTopWidth);
+    const border_bottom_width = parseFloat(style.borderBottomWidth);
     return {
         delay,
         duration,
         easing,
         css: t => 'overflow: hidden;' +
             `opacity: ${Math.min(t * 20, 1) * opacity};` +
-            `${primary_property}: ${t * primary_property_value}px;` +
-            `padding-${secondary_properties[0]}: ${t * padding_start_value}px;` +
-            `padding-${secondary_properties[1]}: ${t * padding_end_value}px;` +
-            `margin-${secondary_properties[0]}: ${t * margin_start_value}px;` +
-            `margin-${secondary_properties[1]}: ${t * margin_end_value}px;` +
-            `border-${secondary_properties[0]}-width: ${t * border_width_start_value}px;` +
-            `border-${secondary_properties[1]}-width: ${t * border_width_end_value}px;`
+            `height: ${t * height}px;` +
+            `padding-top: ${t * padding_top}px;` +
+            `padding-bottom: ${t * padding_bottom}px;` +
+            `margin-top: ${t * margin_top}px;` +
+            `margin-bottom: ${t * margin_bottom}px;` +
+            `border-top-width: ${t * border_top_width}px;` +
+            `border-bottom-width: ${t * border_bottom_width}px;`
     };
 }
 
@@ -1126,7 +1123,9 @@ const validateIconName = (icon, allowSimpleName) => {
   if (!icon) {
     return false;
   }
-  return !!((icon.provider === "" || icon.provider.match(matchIconName)) && (allowSimpleName && icon.prefix === "" || icon.prefix.match(matchIconName)) && icon.name.match(matchIconName));
+  return !!// Check prefix: cannot be empty, unless allowSimpleName is enabled
+  // Check name: cannot be empty
+  ((allowSimpleName && icon.prefix === "" || !!icon.prefix) && !!icon.name);
 };
 
 const defaultIconDimensions = Object.freeze(
@@ -1201,7 +1200,7 @@ function getIconsTree(data, names) {
     }
     return resolved[name];
   }
-  (names || Object.keys(icons).concat(Object.keys(aliases))).forEach(resolve);
+  (Object.keys(icons).concat(Object.keys(aliases))).forEach(resolve);
   return resolved;
 }
 
@@ -1270,10 +1269,15 @@ function quicklyValidateIconSet(obj) {
   const icons = data.icons;
   for (const name in icons) {
     const icon = icons[name];
-    if (!name.match(matchIconName) || typeof icon.body !== "string" || !checkOptionalProps(
-      icon,
-      defaultExtendedIconProps
-    )) {
+    if (
+      // Name cannot be empty
+      !name || // Must have body
+      typeof icon.body !== "string" || // Check other props
+      !checkOptionalProps(
+        icon,
+        defaultExtendedIconProps
+      )
+    ) {
       return null;
     }
   }
@@ -1281,10 +1285,15 @@ function quicklyValidateIconSet(obj) {
   for (const name in aliases) {
     const icon = aliases[name];
     const parent = icon.parent;
-    if (!name.match(matchIconName) || typeof parent !== "string" || !icons[parent] && !aliases[parent] || !checkOptionalProps(
-      icon,
-      defaultExtendedIconProps
-    )) {
+    if (
+      // Name cannot be empty
+      !name || // Parent must be set and point to existing icon
+      typeof parent !== "string" || !icons[parent] && !aliases[parent] || // Check other props
+      !checkOptionalProps(
+        icon,
+        defaultExtendedIconProps
+      )
+    ) {
       return null;
     }
   }
@@ -1348,7 +1357,12 @@ function addIcon(name, data) {
     return false;
   }
   const storage = getStorage(icon.provider, icon.prefix);
-  return addIconToStorage(storage, icon.name, data);
+  if (data) {
+    return addIconToStorage(storage, icon.name, data);
+  } else {
+    storage.missing.add(icon.name);
+    return true;
+  }
 }
 function addCollection(data, provider) {
   if (typeof data !== "object") {
@@ -1362,7 +1376,7 @@ function addCollection(data, provider) {
     if (quicklyValidateIconSet(data)) {
       data.prefix = "";
       parseIconSet(data, (name, icon) => {
-        if (icon && addIcon(name, icon)) {
+        if (addIcon(name, icon)) {
           added = true;
         }
       });
@@ -2199,201 +2213,6 @@ function sendAPIQuery(target, query, callback) {
   return redundancy.query(query, send, callback)().abort;
 }
 
-const browserCacheVersion = "iconify2";
-const browserCachePrefix = "iconify";
-const browserCacheCountKey = browserCachePrefix + "-count";
-const browserCacheVersionKey = browserCachePrefix + "-version";
-const browserStorageHour = 36e5;
-const browserStorageCacheExpiration = 168;
-const browserStorageLimit = 50;
-
-function getStoredItem(func, key) {
-  try {
-    return func.getItem(key);
-  } catch (err) {
-  }
-}
-function setStoredItem(func, key, value) {
-  try {
-    func.setItem(key, value);
-    return true;
-  } catch (err) {
-  }
-}
-function removeStoredItem(func, key) {
-  try {
-    func.removeItem(key);
-  } catch (err) {
-  }
-}
-
-function setBrowserStorageItemsCount(storage, value) {
-  return setStoredItem(storage, browserCacheCountKey, value.toString());
-}
-function getBrowserStorageItemsCount(storage) {
-  return parseInt(getStoredItem(storage, browserCacheCountKey)) || 0;
-}
-
-const browserStorageConfig = {
-  local: true,
-  session: true
-};
-const browserStorageEmptyItems = {
-  local: /* @__PURE__ */ new Set(),
-  session: /* @__PURE__ */ new Set()
-};
-let browserStorageStatus = false;
-function setBrowserStorageStatus(status) {
-  browserStorageStatus = status;
-}
-
-let _window = typeof window === "undefined" ? {} : window;
-function getBrowserStorage(key) {
-  const attr = key + "Storage";
-  try {
-    if (_window && _window[attr] && typeof _window[attr].length === "number") {
-      return _window[attr];
-    }
-  } catch (err) {
-  }
-  browserStorageConfig[key] = false;
-}
-
-function iterateBrowserStorage(key, callback) {
-  const func = getBrowserStorage(key);
-  if (!func) {
-    return;
-  }
-  const version = getStoredItem(func, browserCacheVersionKey);
-  if (version !== browserCacheVersion) {
-    if (version) {
-      const total2 = getBrowserStorageItemsCount(func);
-      for (let i = 0; i < total2; i++) {
-        removeStoredItem(func, browserCachePrefix + i.toString());
-      }
-    }
-    setStoredItem(func, browserCacheVersionKey, browserCacheVersion);
-    setBrowserStorageItemsCount(func, 0);
-    return;
-  }
-  const minTime = Math.floor(Date.now() / browserStorageHour) - browserStorageCacheExpiration;
-  const parseItem = (index) => {
-    const name = browserCachePrefix + index.toString();
-    const item = getStoredItem(func, name);
-    if (typeof item !== "string") {
-      return;
-    }
-    try {
-      const data = JSON.parse(item);
-      if (typeof data === "object" && typeof data.cached === "number" && data.cached > minTime && typeof data.provider === "string" && typeof data.data === "object" && typeof data.data.prefix === "string" && // Valid item: run callback
-      callback(data, index)) {
-        return true;
-      }
-    } catch (err) {
-    }
-    removeStoredItem(func, name);
-  };
-  let total = getBrowserStorageItemsCount(func);
-  for (let i = total - 1; i >= 0; i--) {
-    if (!parseItem(i)) {
-      if (i === total - 1) {
-        total--;
-        setBrowserStorageItemsCount(func, total);
-      } else {
-        browserStorageEmptyItems[key].add(i);
-      }
-    }
-  }
-}
-
-function initBrowserStorage() {
-  if (browserStorageStatus) {
-    return;
-  }
-  setBrowserStorageStatus(true);
-  for (const key in browserStorageConfig) {
-    iterateBrowserStorage(key, (item) => {
-      const iconSet = item.data;
-      const provider = item.provider;
-      const prefix = iconSet.prefix;
-      const storage = getStorage(
-        provider,
-        prefix
-      );
-      if (!addIconSet(storage, iconSet).length) {
-        return false;
-      }
-      const lastModified = iconSet.lastModified || -1;
-      storage.lastModifiedCached = storage.lastModifiedCached ? Math.min(storage.lastModifiedCached, lastModified) : lastModified;
-      return true;
-    });
-  }
-}
-
-function updateLastModified(storage, lastModified) {
-  const lastValue = storage.lastModifiedCached;
-  if (
-    // Matches or newer
-    lastValue && lastValue >= lastModified
-  ) {
-    return lastValue === lastModified;
-  }
-  storage.lastModifiedCached = lastModified;
-  if (lastValue) {
-    for (const key in browserStorageConfig) {
-      iterateBrowserStorage(key, (item) => {
-        const iconSet = item.data;
-        return item.provider !== storage.provider || iconSet.prefix !== storage.prefix || iconSet.lastModified === lastModified;
-      });
-    }
-  }
-  return true;
-}
-function storeInBrowserStorage(storage, data) {
-  if (!browserStorageStatus) {
-    initBrowserStorage();
-  }
-  function store(key) {
-    let func;
-    if (!browserStorageConfig[key] || !(func = getBrowserStorage(key))) {
-      return;
-    }
-    const set = browserStorageEmptyItems[key];
-    let index;
-    if (set.size) {
-      set.delete(index = Array.from(set).shift());
-    } else {
-      index = getBrowserStorageItemsCount(func);
-      if (index >= browserStorageLimit || !setBrowserStorageItemsCount(func, index + 1)) {
-        return;
-      }
-    }
-    const item = {
-      cached: Math.floor(Date.now() / browserStorageHour),
-      provider: storage.provider,
-      data
-    };
-    return setStoredItem(
-      func,
-      browserCachePrefix + index.toString(),
-      JSON.stringify(item)
-    );
-  }
-  if (data.lastModified && !updateLastModified(storage, data.lastModified)) {
-    return;
-  }
-  if (!Object.keys(data.icons).length) {
-    return;
-  }
-  if (data.not_found) {
-    data = Object.assign({}, data);
-    delete data.not_found;
-  }
-  if (!store("local")) {
-    store("session");
-  }
-}
-
 function emptyCallback() {
 }
 function loadedNewIcons(storage) {
@@ -2403,6 +2222,54 @@ function loadedNewIcons(storage) {
       storage.iconsLoaderFlag = false;
       updateCallbacks(storage);
     });
+  }
+}
+function checkIconNamesForAPI(icons) {
+  const valid = [];
+  const invalid = [];
+  icons.forEach((name) => {
+    (name.match(matchIconName) ? valid : invalid).push(name);
+  });
+  return {
+    valid,
+    invalid
+  };
+}
+function parseLoaderResponse(storage, icons, data) {
+  function checkMissing() {
+    const pending = storage.pendingIcons;
+    icons.forEach((name) => {
+      if (pending) {
+        pending.delete(name);
+      }
+      if (!storage.icons[name]) {
+        storage.missing.add(name);
+      }
+    });
+  }
+  if (data && typeof data === "object") {
+    try {
+      const parsed = addIconSet(storage, data);
+      if (!parsed.length) {
+        checkMissing();
+        return;
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  }
+  checkMissing();
+  loadedNewIcons(storage);
+}
+function parsePossiblyAsyncResponse(response, callback) {
+  if (response instanceof Promise) {
+    response.then((data) => {
+      callback(data);
+    }).catch(() => {
+      callback(null);
+    });
+  } else {
+    callback(response);
   }
 }
 function loadNewIcons(storage, icons) {
@@ -2418,38 +2285,50 @@ function loadNewIcons(storage, icons) {
       const { provider, prefix } = storage;
       const icons2 = storage.iconsToLoad;
       delete storage.iconsToLoad;
-      let api;
-      if (!icons2 || !(api = getAPIModule(provider))) {
+      if (!icons2 || !icons2.length) {
         return;
       }
-      const params = api.prepare(provider, prefix, icons2);
+      const customIconLoader = storage.loadIcon;
+      if (storage.loadIcons && (icons2.length > 1 || !customIconLoader)) {
+        parsePossiblyAsyncResponse(
+          storage.loadIcons(icons2, prefix, provider),
+          (data) => {
+            parseLoaderResponse(storage, icons2, data);
+          }
+        );
+        return;
+      }
+      if (customIconLoader) {
+        icons2.forEach((name) => {
+          const response = customIconLoader(name, prefix, provider);
+          parsePossiblyAsyncResponse(response, (data) => {
+            const iconSet = data ? {
+              prefix,
+              icons: {
+                [name]: data
+              }
+            } : null;
+            parseLoaderResponse(storage, [name], iconSet);
+          });
+        });
+        return;
+      }
+      const { valid, invalid } = checkIconNamesForAPI(icons2);
+      if (invalid.length) {
+        parseLoaderResponse(storage, invalid, null);
+      }
+      if (!valid.length) {
+        return;
+      }
+      const api = prefix.match(matchIconName) ? getAPIModule(provider) : null;
+      if (!api) {
+        parseLoaderResponse(storage, valid, null);
+        return;
+      }
+      const params = api.prepare(provider, prefix, valid);
       params.forEach((item) => {
         sendAPIQuery(provider, item, (data) => {
-          if (typeof data !== "object") {
-            item.icons.forEach((name) => {
-              storage.missing.add(name);
-            });
-          } else {
-            try {
-              const parsed = addIconSet(
-                storage,
-                data
-              );
-              if (!parsed.length) {
-                return;
-              }
-              const pending = storage.pendingIcons;
-              if (pending) {
-                parsed.forEach((name) => {
-                  pending.delete(name);
-                });
-              }
-              storeInBrowserStorage(storage, data);
-            } catch (err) {
-              console.error(err);
-            }
-          }
-          loadedNewIcons(storage);
+          parseLoaderResponse(storage, item.icons, data);
         });
       });
     });
@@ -2502,9 +2381,9 @@ const loadIcons = (icons, callback) => {
     }
   });
   sources.forEach((storage) => {
-    const { provider, prefix } = storage;
-    if (newIcons[provider][prefix].length) {
-      loadNewIcons(storage, newIcons[provider][prefix]);
+    const list = newIcons[storage.provider][storage.prefix];
+    if (list.length) {
+      loadNewIcons(storage, list);
     }
   });
   return callback ? storeCallback(callback, sortedIcons, sources) : emptyCallback;
@@ -2671,6 +2550,7 @@ props) {
             case 'style':
             case 'onLoad':
             case 'mode':
+            case 'ssr':
                 break;
             // Boolean attributes
             case 'inline':
@@ -2797,8 +2677,6 @@ setAPIModule('', fetchAPIModule);
  * Browser stuff
  */
 if (typeof document !== 'undefined' && typeof window !== 'undefined') {
-    // Set cache and load existing cache
-    initBrowserStorage();
     const _window = window;
     // Load icons from global "IconifyPreload"
     if (_window.IconifyPreload !== void 0) {
@@ -2969,7 +2847,7 @@ function create_if_block$1(ctx) {
 	};
 }
 
-// (115:1) {:else}
+// (120:1) {:else}
 function create_else_block(ctx) {
 	let span;
 	let span_levels = [/*data*/ ctx[0].attributes];
@@ -3004,7 +2882,7 @@ function create_else_block(ctx) {
 	};
 }
 
-// (111:1) {#if data.svg}
+// (116:1) {#if data.svg}
 function create_if_block_1(ctx) {
 	let svg;
 	let raw_value = /*data*/ ctx[0].body + "";
@@ -3139,7 +3017,8 @@ function instance$1($$self, $$props, $$invalidate) {
 
 	$$self.$$.update = () => {
 		{
-			const iconData = checkIconState($$props.icon, state, mounted, loaded, onLoad);
+			const isMounted = !!$$props.ssr || mounted;
+			const iconData = checkIconState($$props.icon, state, isMounted, loaded, onLoad);
 			$$invalidate(0, data = iconData ? generateIcon(iconData.data, $$props) : null);
 
 			if (data && iconData.classes) {
