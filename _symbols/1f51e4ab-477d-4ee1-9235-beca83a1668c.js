@@ -1,4 +1,4 @@
-// Site Header - Updated November 12, 2025
+// Site Header - Updated December 1, 2025
 function noop() { }
 const identity = x => x;
 function assign(tar, src) {
